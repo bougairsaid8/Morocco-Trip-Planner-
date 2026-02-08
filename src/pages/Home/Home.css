@@ -1,0 +1,422 @@
+.Home{
+    margin-top: 10vh;
+    overflow: hidden;
+    position: relative;
+}
+.map-wrapper {
+  position: relative; 
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  height: 90vh;
+}
+
+.map-gradient-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px; 
+  background: linear-gradient(to bottom, transparent, var(--bg-light));
+  z-index: 1000; 
+  pointer-events: none; 
+}
+
+.planning-card {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  z-index: 2000; 
+  /* width: 90%; */
+  max-width: 450px;
+  padding: 2.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(16px); 
+  -webkit-backdrop-filter: blur(16px);
+  border: 2px solid var(--white);
+  box-shadow: 0 25px 50px -12px  rgba(0, 0, 0, 0.25);
+
+}
+
+.planning-card h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--accent-black);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.planning-card p {
+  color: rgba(75, 85, 99, 1);
+  font-weight: 300;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  position: relative;
+  background: var(--bg-light);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 2px  rgba(0, 0, 0, 0.05);
+
+}
+
+.input-group select {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--accent-black);
+  outline: none;
+}
+
+.btn-start {
+  width: 100%;
+  background-color: var(--secondary-blue); 
+  color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  border: none;
+}
+.btn-start:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.workflowSection {
+    padding: 50px 10%;
+    text-align: center;
+    margin-bottom: 1rem;
+
+}
+.workflowTitle {
+    color: var(--secondary-blue); 
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    margin-bottom: 32px;
+}
+.workflowContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    position: relative; 
+}
+.workflowContainer::before {
+    content: "";
+    position: absolute;
+    top: 30px; 
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background-color: #e2e8f0;
+    z-index: 1;
+}
+.workflowCard {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2; 
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+.workflowCard:hover {
+    transform: translateY(-15px); 
+}
+.workflowCard:hover .iconWrapper {
+    background-color: var(--secondary-blue); 
+    color: white; 
+    border-color: var(--secondary-blue);
+    transform: rotate(9deg) scale(1.1); 
+    box-shadow: 0 10px 20px rgba(66, 167, 195, 0.3);
+}
+.workflowCard:hover h3 {
+    color: var(--primary-orange); 
+    transition: color 0.3s ease;
+}
+.iconWrapper {
+    width: 64px;
+    height: 64px;
+    background-color: white;
+    border: 1px solid rgba(245, 245, 245, 1);
+    border-radius: 20px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--accent-black);
+    margin-bottom: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+.workflowCard h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: var(--accent-black);
+}
+.workflowCard p {
+    font-size: 1rem;
+    color: rgba(115, 115, 115, 1);
+    line-height: 1.6;
+    max-width: 242px;
+}
+
+.uses {
+    padding: 10px 10%;
+    text-align: center;
+    background-color: var(--bg-light);
+    margin-bottom: 1rem;
+    z-index: 1;
+}
+.usesTitle {
+    color: var(--secondary-blue);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 48px;
+    text-transform: uppercase;
+}
+.usesContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.usesCard {
+    flex: 1;
+    background: white;
+    padding: 40px 30px;
+    border-radius: 24px;
+    text-align: left; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); 
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    transition: all 0.8s ease;
+}
+.usesCard:hover {
+    transform: translateY(-10px);}
+
+.usesIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.icon-orange { background: #fff7ed; color: #ea580c; }
+.icon-blue   { background: #eff6ff; color: #3b82f6; }
+.icon-green  { background: #f0fdf4; color: #22c55e; }
+.usesCard h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--accent-black);
+
+}
+.usesCard p {
+    color: rgba(115, 115, 115, 1);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    max-width: 259px;
+}
+
+.ctaSection {
+    padding: 60px 10% 100px 10%; 
+    text-align: center;
+}
+.ctaContainer {
+   background-color: rgba(66, 168, 195, 0.15);
+    padding: 60px 40px;
+    border-radius: 32px; 
+    border: 1px solid rgba(66, 168, 195, 1); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+}
+.ctaContainer h2 {
+    color: var(--secondary-blue); 
+    font-size: 2.2rem;
+    font-weight: 800;
+}
+.ctaInputWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px; 
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 8px;
+    border-radius: 999px; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.searchIcon {
+    margin-left: 20px;
+    color: var(--text-gray);
+    font-size: 1.2rem;
+}
+.ctaInputWrapper input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px 15px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--accent-black);
+}
+.ctaInsideBtn {
+    background-color: var(--secondary-blue);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+.ctaInsideBtn:hover {
+    background-color: #358ca5; 
+    padding-right: 30px; 
+}
+
+/* workflows RESPONSIVE  */
+
+@media (max-width: 768px) {
+    .workflowContainer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 5px; 
+        gap: 40px;
+    }
+
+    
+    .workflowContainer::before {
+        top: 0;
+        left: 32px; 
+        width: 2px;
+        height: 100%;
+        right: auto;
+    }
+
+    .workflowCard {
+        flex-direction: row;
+        text-align: left;
+        gap: 20px;
+    }
+    .workflowCard h3{
+        font-size: 1,1rem;
+    }
+    .workflowCard p{
+        font-size: 0.99rem;
+    }
+
+    .iconWrapper {
+        min-width: 64px; 
+        margin-bottom: 0;
+    }
+}
+
+/* CTA RESPONSIVE */
+@media (max-width: 500px) {
+    /* 1. تصغير الـ Container وزيادة الـ padding الجانبي */
+    .ctaContainer {
+        padding: 40px 20px;
+        border-radius: 24px;
+        gap: 24px;
+    }
+
+    .ctaContainer h2 {
+        font-size: 1.6rem;
+        line-height: 1.2;
+    }
+
+    .ctaInputWrapper {
+        flex-direction: column; 
+        background: transparent;
+        box-shadow: none;
+        gap: 12px;
+        padding: 0;
+    }
+
+    .ctaInputWrapper input {
+        width: 100%;
+        background: white;
+        border-radius: 999px;
+        padding: 14px 20px;
+        border: 1px solid #e2e8f0;
+        text-align: center; 
+    }
+
+    .ctaInsideBtn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px;
+        font-size: 1.1rem;
+    }
+    
+    .searchIcon {
+        display: none; 
+    }
+}
+
+/* KHARITA RESPONSIVE */
+
+@media (max-width: 768px) {
+    .map-wrapper {
+        height: 70vh; 
+        margin-bottom: 1rem;
+    }
+
+    .planning-card {
+        width: 80%; 
+        max-width: 350px; 
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+
+    
+    .planning-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .planning-card p {
+        font-size: 0.85rem; 
+        margin-bottom: 1.5rem;
+    }
+
+
+    .input-group {
+        padding: 0.6rem 0.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .btn-start {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+}
