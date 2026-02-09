@@ -1,6 +1,8 @@
 // 1.Auth  Selectors :
 export const selectUser = (state) => state.auth.user;
 export const selectIsAuthenticated = (state) => state.auth.isAuthenticated;
+export const selectAuthMessage = (state) => state.auth.message;
+export const selectAuthError = (state) => state.auth.error;
 
 // 2. Current Trip Selectors : 
 export const selectCurrentTrip = (state) => state.trip.currentTrip;
