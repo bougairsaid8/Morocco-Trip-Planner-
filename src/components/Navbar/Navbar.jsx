@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import "./Navbar.css"
-import { useState ,useEffect} from 'react';
+import { useState } from 'react';
 import { LuMenu, LuX } from "react-icons/lu";
 
 

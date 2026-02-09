@@ -1,0 +1,209 @@
+
+
+.auth-container-login {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; 
+  background: var(--white);
+}
+
+/* --- Form Side --- */
+.form-side-login {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 50px; /* fiha ni9ach*/
+  padding-top: 11vh; /* 11vh 3la 7sab l header */
+  overflow-y: auto;
+}
+
+.form-wrapper-login { 
+  width: 100%; 
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+
+.brand-logo-login {
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 0.45px;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-icon-login { 
+  color: var(--secondary-blue); 
+  font-size: 1.4rem; 
+  display: flex;
+  align-items: center;
+ }
+
+.form-wrapper-login h2 { 
+  color: var(--accent-black);
+  margin-bottom: 12px;
+  margin-top: 20px;
+  font-weight: 700;
+  font-style:normal;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: -0.75px;
+  vertical-align: middle;
+}
+
+.sub-text-login { 
+  color: #6B7280;
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+/* تنسيق رسائل الخطأ */
+.error-text-small-login {
+  color: #e53e3e;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 3px;
+  display: block;
+}
+
+
+.error-message-box {
+  background-color: #fff5f5;
+  color: #e53e3e;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #feb2b2;
+  font-size: 0.8rem;
+  margin-bottom: 15px;
+  text-align: center;
+  animation: slideUp 0.4s ease;
+}
+
+.input-group-login { 
+  margin-bottom: 20px; 
+}
+
+.input-group-login label { 
+  display: block;
+  color: var(--text-label);
+  margin-bottom: 8px;
+  font-weight:500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+.input-with-icon-login { position: relative; display: flex; align-items: center; }
+.field-icon-login { position: absolute; left: 16px; color: #a0aec0; font-size: 1rem; }
+
+.input-with-icon-login input {
+  width: 100%;
+  padding: 12px 16px 12px 48px; 
+  border: 1px solid #edf2f7;
+  border-radius: 12px;
+  background: var(--bg-light);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input-with-icon-login input:focus {
+  outline: none;
+  border-color: var(--secondary-blue);
+  background: var(--white);
+  box-shadow: 0 8px 15px rgba(66, 167, 195, 0.1);
+}
+
+.eye-toggle-login { 
+  position: absolute; 
+  right: 16px; 
+  cursor: pointer; 
+  color: var(--text-gray); 
+  display: flex; 
+  align-items: center;
+}
+
+.forgot-link-wrapper-login { 
+  text-align: right; 
+  margin-top: 5px; 
+}
+.forgot-link-login {
+   color: var(--primary-red); 
+   text-decoration: none;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+.btn-main-login {
+  width: 100%;
+  padding: 14px;
+  background: var(--secondary-blue); 
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(66, 167, 195, 0.15);
+  font-weight: 600;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+.btn-main-login:hover {
+  background-color: var(--secondary-blue-hover);
+  box-shadow: 0 8px 15px rgba(66, 167, 195, 0.2);
+  transform: translateY(-1px);
+}
+
+.btn-icon-login {
+  font-size: 0.9rem;
+}
+
+.btn-text-login {
+  background: none;
+  border: none;
+  color: #6B7280;
+  margin-top: 15px;
+  cursor: pointer;
+  width: 100%;
+font-weight: 400;
+font-size: 16px;
+line-height: 20px;
+letter-spacing: 0;
+text-align: center;
+vertical-align: middle;
+
+}
+.signup-redirect-login { 
+  text-align: center; 
+  margin-top: 15px; 
+  font-size: 0.85rem; 
+  color: #718096; 
+}
+
+.signup-redirect-login a {  color: var(--secondary-blue); font-weight: 600; text-decoration: none;}
+/* -- Animations -- */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}

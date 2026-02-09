@@ -1,23 +1,27 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { selectIsAuthenticated } from './reduxStructure/selectors';
 
+
 // --- IMPORTING PAGES ---
-import Home from './pages/Home';
-import Explorer from './pages/Explorer';
-import Planner from './pages/Planner';
-import MyTrips from './pages/MyTrips';
-import TripDetails from './pages/TripDetails';
-import Profile from './pages/Profile';
-import About from './pages/About';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import ForgotPassword from './pages/ForgotPassword';
-import ResetPassword from './pages/ResetPassword';
-import NotFound from './pages/NotFound';
+import Home from './pages/Home/Home.jsx';
+import Explorer from './pages/Explorer/Explorer.jsx';
+import Planner from './pages/Planner/Planner.jsx';
+import MyTrips from './pages/MyTrips/MyTrips.jsx';
+import TripDetails from './pages/TripDetails/TripDetails.jsx';
+import Profile from './pages/Profile/Profile.jsx';
+import About from './pages/About/About.jsx';
+import Login from './pages/Auth/Login.jsx';
+import SignUp from './pages/Auth/Signup.jsx';
+import ForgotPassword from './pages/Auth/ForgotPassword.jsx';
+import NotFound from './pages/NotFound/NotFound.jsx';
+
+// test 
+import SignupSteps from './pages/Auth/Signup.jsx';
 
 // --- IMPORTING COMPONENTS ---
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar.jsx';
 
 /**
  * PROTECTED ROUTE COMPONENT
@@ -25,7 +29,8 @@ import Navbar from './components/Navbar';
  * Used for pages like Profile, Planner, and MyTrips.
  */
 const ProtectedRoute = () => {
-  return selectIsAuthenticated ? <Outlet /> : <Navigate to="/login" />;
+  const isAuth = useSelector(selectIsAuthenticated);
+  return isAuth ? <Outlet /> : <Navigate to="/login" replace />;
 };
 
 /**
@@ -34,7 +39,8 @@ const ProtectedRoute = () => {
  * Used for pages like Login, Signup, and ResetPassword,ForgotPassword.
  */
 const GuestRoute = () => {
-  return selectIsAuthenticated ? <Navigate to="/" /> : <Outlet />;
+  const isAuth = useSelector(selectIsAuthenticated);
+  return isAuth ? <Navigate to="/" replace /> : <Outlet />;
 };
 
 function App() {
@@ -54,9 +60,10 @@ function App() {
             Accessible only if NOT logged in. Redirects to '/'. */}
         <Route element={<GuestRoute />}>
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
+          {/* test */}
+          <Route path="/signup-steps" element={<SignupSteps />} />
         </Route>
 
         {/* --- PROTECTED ROUTES --- 

@@ -1,15 +1,41 @@
 .Home{
     margin-top: 10vh;
-    overflow: hidden;
     position: relative;
 }
 .map-wrapper {
   position: relative; 
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
   margin-bottom: 2rem;
   height: 90vh;
 }
+
+/* said : I added this code because the homepage has a scrolling problem. */
+/* chrome */
+::-webkit-scrollbar {
+  width: 10px; 
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-light); 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-blue); 
+  border-radius: 10px;
+  border: 2px solid var(--bg-light); 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #358ca5; 
+}
+/* fierfox */
+/* Firefox support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary-blue) var(--bg-light);
+}
+/* end code */
+
 
 .map-gradient-overlay {
   position: absolute;

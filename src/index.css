@@ -1,18 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400.500;600;800;300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 .leaflet-default-icon-path {
     background-image: url(https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png);
 }
 
 :root {
-  --primary-orange: rgba(234, 88, 12, 1);   
-  --secondary-blue: rgba(66, 167, 195, 1);   
+  --primary-red: #e53e3e;   
+  --secondary-blue: rgba(66, 167, 195, 1); 
+  --secondary-blue-hover: #358ca5;
   --accent-black: #1a1a1a;                  
   
   --bg-light: #f8fafc;                      
   --white: #ffffff;
   --text-gray: rgba(209, 213, 219, 1);                    
-  
+  --text-label:rgb(55, 65, 81);
 
   --main-font: 'Poppins','sans-serif';
 }

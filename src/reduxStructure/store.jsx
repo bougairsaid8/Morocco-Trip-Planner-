@@ -1,6 +1,8 @@
-import { legacy_createStore as createStore } from 'redux';
-import { rootReducer } from './reducers/combineReducers';
 
-const store = createStore(rootReducer); 
-
-export default store;
+import {configureStore} from '@reduxjs/toolkit';
+import authReducer from "./reducers/authReducer"
+export const store = configureStore({
+    reducer: {
+        auth: authReducer,
+    }
+})

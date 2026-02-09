@@ -1,0 +1,222 @@
+منع السكرول وإعدادات القياس العامة
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+.auth-container-signup {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; 
+}
+
+.form-side-signup {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  padding: 0px 50px; /* fiha ni9ach*/
+  padding-top: 11vh; /* 11vh 3la 7sab l header */
+  overflow-y: auto;
+}
+
+.form-wrapper-signup { 
+  width: 100%; 
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.brand-logo-signup {
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 0.45px;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-icon-signup {
+  color: #42A7C3; 
+  font-size: 1.4rem; 
+  display: flex;
+  align-items: center;
+}
+
+.form-wrapper-signup h2 { 
+  color: #111827;
+  margin-top: 8px;
+  font-weight: 700;
+  font-style:normal;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: -0.75px;
+  vertical-align: middle;
+}
+
+.sub-text-signup { 
+  color: #6B7280;
+  margin-bottom: 8px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+
+.input-group-signup { 
+  margin-bottom: 6px; 
+}
+
+.input-group-signup label { 
+  display: block;
+  color: #374151;
+  margin-bottom: 5px;
+  font-weight:500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+.input-with-icon-signup { position: relative; display: flex; align-items: center; }
+.field-icon-signup { position: absolute; left: 14px; color: #a0aec0; font-size: 0.9rem; }
+
+.input-with-icon-signup input {
+  width: 100%;
+  padding: 12px 16px 12px 48px; 
+  border: 1px solid #edf2f7;
+  border-radius: 12px;
+  background: #f8fafc;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.input-with-icon-signup input:focus {
+  outline: none;
+  border-color: #42A7C3;
+  background: #fff;
+  box-shadow: 0 8px 15px rgba(66, 167, 195, 0.1);
+}
+
+.row-signup { 
+  display: flex; 
+  gap: 10px; 
+  margin-bottom: 10px; 
+}
+
+.mb-0 { margin-bottom: 0; flex: 1; }
+
+.eye-toggle-signup { 
+  position: absolute;
+  right: 16px;
+  cursor: pointer;
+  color: #a0aec0;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group-signup { 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  margin-bottom: 15px; 
+  font-size: 14px; 
+  color: #6B7280; 
+}
+
+.logo-icon-signup {
+  color: #42A7C3; 
+  font-size: 1.4rem; 
+  display: flex;
+  align-items: center;
+}
+.btn-main-signup {
+   width: 100%;
+  padding: 14px;
+  background: #42A7C3; 
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(66, 167, 195, 0.15);
+  font-weight: 600;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+.btn-main-signup:hover {
+  background: #378ca3;
+  transform: translateY(-1px);
+}
+
+.btn-icon-signup {
+  font-size: 0.9rem;
+}
+
+.btn-text-signup {
+  background: none;
+  border: none;
+  color: #6B7280;
+  margin-top: 15px;
+  cursor: pointer;
+  width: 100%;
+font-weight: 400;
+font-size: 16px;
+line-height: 20px;
+letter-spacing: 0;
+text-align: center;
+vertical-align: middle;
+
+}
+
+.login-redirect-signup { 
+  background: none;
+  border: none;
+  color: #6B7280;
+  margin-top: 15px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.login-redirect-signup a { color: #42A7C3; font-weight: 600; text-decoration: none; }
+
+/* style errors */
+.error-text-small-signup {
+  color: #e53e3e;
+  font-size: 0.7rem; 
+  font-weight: 600;
+  margin-top: 2px;
+  display: block;
+}
+
+
+.checkbox-group-wrapper-signup {
+  margin-bottom: 12px;
+}
+
+.checkbox-group-signup {
+  margin-bottom: 0px; 
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+} 
