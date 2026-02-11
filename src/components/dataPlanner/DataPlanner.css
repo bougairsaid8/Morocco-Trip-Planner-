@@ -1,0 +1,143 @@
+.dataPlanner{
+        width: 100%;
+        padding: 24px 48px;
+}
+.tripInfos{
+        width :500px;
+        margin-bottom:12px ;
+}
+.tripInfos h3{
+        font-weight: 500;
+        font-size: 1.6rem;
+}
+.tripInfos p{
+        color:var(--text-gray);
+        margin-top: 1px;
+        font-size: 0.97rem;    
+}
+.types{
+        width:400px;
+        display: flex;
+        align-items: center;
+        gap:20px
+
+}
+.types button{
+        border: none;
+        outline: none;
+        background-color: transparent;
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--text-gray);
+}
+.types button.active {
+        color:var(--secondary-blue);
+        border-bottom: 2.5px solid var(--secondary-blue);
+}
+.line{
+        width:800px;
+        height: 2px;
+        background-color: var(--text-gray);
+        margin-top: 16px;
+        opacity: 0.1;
+}
+.dataCards{
+        margin-top: 24px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-wrap: wrap;
+        gap:32px;
+    
+
+
+}
+.dataCards .dataCard{
+        background-color: white;
+        width:300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 16px rgba(15, 17, 18, 0.3) ;
+        position:relative  ;
+}
+.dataCards .dataCard .image{
+        width:288px;
+        height:278px;
+        border-radius: 10px;
+        background-color: var(--secondary-blue);
+        margin-top: 6px;   
+         
+}
+.dataCards .dataCard .type{
+        position: absolute;
+        color: white;
+        top:16px;
+        left:16px;
+        font-size: 0.8rem;
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 5px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.dataCards .dataCard .review{
+         position: absolute;
+        color: white;
+        top:16px;
+        right:16px;
+        font-size: 0.8rem;
+        padding: 5px 12px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 4px;
+}
+.dataCards .dataCard .review .star{
+        margin-top: 3px;
+}
+.dataCards .dataCard .dataInfos{
+        margin-top: 16px;
+        align-self: flex-start;
+        padding: 0 24px;
+                width:100%
+
+
+}
+.dataCards .dataCard .dataInfos .nomee{
+        font-weight: 600;
+        font-size: 1.3rem;
+        
+}
+.dataCards .dataCard .dataInfos p{
+        font-weight: 300;
+        font-size: 0.8rem;
+        color:var(--text-gray);
+        margin-top: -3px;
+}
+.footerInfos{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        width:100%;
+        margin: 10px 0;
+}
+.footerInfos .pri{
+        font-size: 1rem;
+
+        font-weight: 500;
+}
+.footerInfos button {
+        outline: none;
+        border:none;
+        padding:8px 16px;
+        color:white;
+        background-color: black;
+        border-radius: 999px;
+}
+
+
