@@ -5,7 +5,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { FaRegEnvelope, FaUnlock, FaMapMarkedAlt, FaPaperPlane, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 import { useDispatch, useSelector } from 'react-redux';
-import { login ,clearAuthError} from '../../reduxStructure/reducers/authReducer.jsx';
+import { login ,clearAuthError} from '../../reduxStructure/slices/authSlice.jsx';
 import { selectAuthError, selectAuthMessage, selectIsAuthenticated } from '../../reduxStructure/selectors.jsx';
 
 import AuthHero from '../../components/AuthHero/AuthHero.jsx';

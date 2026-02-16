@@ -1,89 +1,63 @@
-import React, { useState } from "react";
-import { LuChevronDown } from "react-icons/lu";
-import { AiOutlineClose } from "react-icons/ai";
+import React from "react";
+import { MdDeleteSweep } from "react-icons/md";
+
 import "./daysCard.css";
+import { useSelector ,useDispatch} from "react-redux";
+
+// 
+import {  selectPlanner } from "../../reduxStructure/selectors";
+import {selectDay,deleteDay,removeItem} from "../../reduxStructure/slices/plannerSlice";
 
 const DayCard = () => {
-  const [days, setDays] = useState([
-    { 
-      id: 1, 
-      label: "Day 1", 
-      activities: [
-        { id: 101, name: "Riad Breakfast", time: "08:30 AM", price: 25 },
-        { id: 102, name: "Jardin Majorelle", time: "11:00 AM", price: 15 }
-      ] 
-    },
-    { id: 2, label: "Day 2", activities: [] }, // نهار خاوي للتجربة
-    { id: 3, label: "Day 3", activities: [] },
-  ]);
 
-  const [activeDayId, setActiveDayId] = useState(null);
-
-  const clearActivities = (id) => {
-    setDays(days.map(d => d.id === id ? { ...d, activities: [] } : d));
-  };
-
-  const removeDay = (id) => {
-    setDays(days.filter(d => d.id !== id));
-  };
-
+  const selectedDay = useSelector(selectPlanner).selectedDayId;
+  const days = useSelector(selectPlanner).days;
+  const dispatch = useDispatch();
+  const selectedDayItems = days.find(day => day.id === selectedDay)?.items;
+ 
   return (
     <div className="daysCard">
-      {days.map((item) => {
-        const isActive = activeDayId === item.id;
-        const hasActivities = item.activities && item.activities.length > 0;
+       {days.map((item,index) => {
+          const isActive = selectedDay === item.id;
 
         return (
           <div key={item.id} className={`day ${isActive ? 'active' : ''}`}>
-            <div className="day-main-content" onClick={() => setActiveDayId(isActive ? null : item.id)}>
+            <div className="day-main-content" onClick={() => dispatch(selectDay(item.id))}>
               <div className="leftS">
-                <div className={`dayId ${isActive ? 'active' : ''}`}><span>{item.id}</span></div>
+                <div className={`dayId ${isActive ? 'active' : ''}`}><span>{index+1}</span></div>
                 <div className="labelInfos">
-                  <h3>{item.label}</h3>
-                  <p><span>{item.activities.length}</span> places</p>
+                  <h3>Day {index+1}</h3>
+                  <p><span>{item.items.length}</span> places</p>
                 </div>
               </div>
               <div className="rightS">
-                <div className="budget"><p><span>{item.id * 20}</span> $</p></div>
-                <LuChevronDown className={`arrow-icon ${isActive ? 'rotate' : ''}`} />
+                <div className="budget">
+                  <p>
+                    {item.items.reduce((sum, i) => sum + (i.price || 0), 0).toFixed(2)} MAD
+                  </p>
+                  </div>
+                <span onClick={()=>dispatch(deleteDay(item.id))}><MdDeleteSweep /></span>
               </div>
             </div>
 
-            {isActive && (
+             {(isActive) && (
               <div className="day-details">
-                {item.activities.map(act => (
+                {selectedDayItems?.map(act => (
                   <div key={act.id} className="activity-item">
-                    <div className="imga"></div>
+                    <div className="imga" style={{backgroundImage:`url(${act.image})`}}></div>
                     <div className="text">
-                      <div className="t">
                         <h4>{act.name}</h4>
-
-     
-                        </div>
-                       <div className="izdar">
-                          <p>{act.time}</p>
-
-
-                       </div>
-                      
+                        <p>{act.price} MAD</p>
                     </div>
+                    <MdDeleteSweep onClick={()=>dispatch(removeItem({ dayId:item.id, itemId:act.id }))}/>
                   </div>
                 ))}
+                 {selectedDayItems.length==0 && (<p className="day_empty">Let’s add something to this day</p>)}
 
-                {/* 🎯 4. اللوجيك ديال البوطونة اللي بغيتي */}
-                <div className="day-actions">
-                  {hasActivities ? (
-                    <button className="clear-btn" onClick={() => clearActivities(item.id)}>
-                       Clear All Activities
-                    </button>
-                  ) : (
-                    <button className="remove-btn" onClick={() => removeDay(item.id)}>
-                       Remove This Day
-                    </button>
-                  )}
-                </div>
+              
               </div>
             )}
+           
           </div>
         );
       })}

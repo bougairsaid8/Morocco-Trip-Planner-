@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { FaRegEnvelope, FaPaperPlane, FaRegEye, FaRegEyeSlash, FaUnlock, FaMapMarkedAlt,FaShare   } from "react-icons/fa";
 
 import { useDispatch, useSelector } from 'react-redux';
-import { resetPassword ,clearAuthError} from '../../reduxStructure/reducers/authReducer.jsx';
+import { resetPassword ,clearAuthError} from '../../reduxStructure/slices/authSlice.jsx';
 import { selectAuthError, selectAuthMessage, selectIsAuthenticated } from '../../reduxStructure/selectors.jsx';
 
 import emailjs from '@emailjs/browser'; 

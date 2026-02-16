@@ -5,25 +5,40 @@ import "./Home.css"
 import { useMap } from 'react-leaflet';
 import { useNavigate } from 'react-router-dom';
 
-const MapComponent = ({setCityName}) => {
+
+
+const MapComponent = () => {
   
 
   const [position,setPosition]=useState([31.7917, -7.0926])
+  const [city,setCity]=useState("Agadir")
   const navigate=useNavigate()
 
-  const Cities=[
-      {city:"Agadir",position:[30.4278, -9.5981]},
-      {city:"Casablanca",position:[33.5731, -7.5898]},
-      {city:"Marakech",position:[31.6295, -7.9811]},
-      {city:"Tanger",position:[35.7595, -5.8340]},
+  
+  const Cities = [
+  { city: "Agadir", position: [30.4278, -9.5981] },
+  { city: "Casablanca", position: [33.5731, -7.5898] },
+  { city: "Marrakech", position: [31.6295, -7.9811] },
+  { city: "Tangier", position: [35.7595, -5.8340] },
 
-  ];
+  { city: "Rabat", position: [34.0209, -6.8416] },
+  { city: "Fes", position: [34.0331, -5.0003] },
+  { city: "Meknes", position: [33.8730, -5.5407] },
+  { city: "Tetouan", position: [35.5785, -5.3684] },
+  { city: "Chefchaouen", position: [35.1688, -5.2636] },
+  { city: "Essaouira", position: [31.5085, -9.7595] },
+  { city: "Safi", position: [32.2994, -9.2372] },
+  { city: "Nador", position: [35.1681, -2.9335] },
+  { city: "Dakhla", position: [23.6848, -15.9570] },
+  { city: "Laayoune", position: [27.1536, -13.2033] },
+  { city: "Ouarzazate", position: [30.9335, -6.9370] },
+];
+
   const handleCityChange=(e)=>{
     const selectedCity=Cities.find((item)=>item.city === e.target.value);
     if (selectedCity){
       setPosition(selectedCity.position);
-      setCityName(selectedCity.city);
-      
+      setCity(selectedCity.city);
     }
   }
 
@@ -41,7 +56,7 @@ const MapComponent = ({setCityName}) => {
 
         <Marker position={position}>
           <Popup>
-            مرحباً بك في المغرب! <br /> ابدأ التخطيط لرحلتك.
+           Welcome to Morocco!<br /> Start planning your trip.
           </Popup>
         </Marker>
       </MapContainer>
@@ -61,7 +76,7 @@ const MapComponent = ({setCityName}) => {
               })}
           </select>
         </div>
-        <button className="btn-start" onClick={()=>navigate("/login")}>
+        <button className="btn-start" onClick={()=>navigate(`/planner/${city}`)}>
         Start Planning <LuArrowRight />
         </button>
     </div>

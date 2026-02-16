@@ -25,12 +25,12 @@ function Home() {
 
   const handleStart = () => {
     if (cityName.trim() !== "") {
-      navigate('/login');
+      navigate(`/planner/${cityName}`);
     }}
 
   return (
     <div className='Home'>
-      <MapComponent setCityName={setCityName}/>
+      <MapComponent />
 
       <section className='workflowSection'>
         <h1 className='workflowTitle'>WORKFLOW</h1>
