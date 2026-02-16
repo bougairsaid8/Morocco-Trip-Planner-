@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { FaRegEnvelope, FaUnlock, FaMapMarkedAlt, FaPaperPlane, FaRegEye, FaRegEyeSlash, FaUser, FaArrowRight, FaShare } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
-import { signup, clearAuthError } from '../../reduxStructure/reducers/authReducer.jsx';
+import { signup, clearAuthError } from '../../reduxStructure/slices/authSlice.jsx';
 import { selectAuthError, selectAuthMessage, selectIsAuthenticated } from '../../reduxStructure/selectors.jsx';
 import AuthHero from '../../components/AuthHero/AuthHero.jsx';
 import './Signup.css';

@@ -1,3 +1,4 @@
+// src/reduxStructure/reducers/authReducer.jsx
 import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     user: JSON.parse(localStorage.getItem('currentUser')) || null, 

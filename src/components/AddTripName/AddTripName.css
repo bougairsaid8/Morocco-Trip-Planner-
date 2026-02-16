@@ -1,0 +1,143 @@
+.tripCardWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+}
+
+.tripCard {
+  width: 460px;
+  background: var(--white);
+  border-radius: 14px;
+  padding: 20px 18px;
+  text-align: center;
+
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.tripCard .closeIcon{
+    font-size: 25px;
+    position: absolute;
+    top:10px;
+    right: 10px;
+    cursor: pointer;
+}
+.tripCard__title {
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent-black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.tripCard__desc {
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-gray);
+}
+
+.tripCard__form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.tripCard__inputRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  height: 50px;
+  padding: 0 12px;
+
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #fafafa;
+}
+
+.tripCard__prefix {
+  font-size: 20px;
+  padding-bottom: 5px;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tripCard__input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--accent-black);
+}
+
+.tripCard__input::placeholder {
+  color: #9ca3af;
+}
+
+.tripCard__btn {
+  height: 45px;
+  border: none;
+  border-radius: 10px;
+
+  background: var(--secondary-blue);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tripCard__btn:hover {
+    background-color: var(--secondary-blue-hover);
+}
+
+
+
+
+/* next_step */
+.next_step__actions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 6px;
+}
+
+.tripCard__title svg{
+    color: green;
+}
+
+.btnGhost{
+  height: 45px;
+  width: 40%;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background: #aaaaaa;
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btnGhost.active{
+    background-color: var(--secondary-blue);
+}
+
+.btnGhost:hover{
+    background-color: var(--secondary-blue-hover);
+}
+
+
