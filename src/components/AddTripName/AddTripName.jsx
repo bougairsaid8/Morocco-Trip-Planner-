@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { saveTrip } from "../../reduxStructure/slices/savedTripsSlice";
 import { selectTripTotal, selectCity, selectPlanner } from "../../reduxStructure/selectors.jsx";
@@ -17,8 +17,40 @@ function AddTripName({ setNameTrip }) {
   const nameCity = useSelector(selectCity);
   const planner = useSelector(selectPlanner);
 
+  const [cityImage, setCityImage] = useState("");
+
+
   const dispatch = useDispatch();
   const navigate = useNavigate(); 
+  useEffect(()=>{
+    async function run() {
+      if (!nameCity) return;
+      try {
+          const res = await fetch(
+            `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(nameCity)}`
+          );
+          if (!res.ok) {
+            throw new Error("Wikipedia request failed");
+          }
+          const data = await res.json();
+          const image =data?.originalimage?.source || "";
+
+          setCityImage(
+            image ||
+            "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1"
+          );
+
+        } catch (error) {
+          console.error("Error fetching city image:", error);
+
+          setCityImage(
+            "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1"
+          );
+        }
+
+    }
+    run()
+  },[nameCity])
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -30,6 +62,7 @@ function AddTripName({ setNameTrip }) {
     dispatch(
       saveTrip({
         name: tripName,
+        image:cityImage,
         city: nameCity,
         total: total,
         plannerSnapshot: planner,
@@ -47,7 +80,7 @@ function AddTripName({ setNameTrip }) {
 
   const goMyTrips = () => {
     setNameTrip(false);
-    navigate("/mytrips");    
+    navigate("/my-trips");    
   };
 
   return (

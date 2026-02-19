@@ -11,7 +11,7 @@ function Planner() {
  
 // state for view model addTripName
  const [NameTrip,setNameTrip] = useState(false)
-
+ 
   return (
     // Planner.jsx
 <div className="planner-wrapper">

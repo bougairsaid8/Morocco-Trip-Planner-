@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 
 // import actions from redux
 import {setCity,setLoading,setError,setCityPlaces} from "../../reduxStructure/slices/cityDataSlice"
-import { addItemToSelectedDay , initPlanner } from '../../reduxStructure/slices/plannerSlice';
+import { addItemToSelectedDay , resetPlanner } from '../../reduxStructure/slices/plannerSlice';
 
 import { Commet } from "react-loading-indicators";
 
@@ -25,6 +25,7 @@ function DataPlanner({setSelectedItem}) {
   // get city name from url params and set it to redux state
   const params = useParams();
   const nameCity = (params.cityName || "").trim();
+
 
 
   // saved data from api
@@ -310,8 +311,11 @@ function priceText(level) {
   // seave city name to redux state 
   useEffect(() => {
     if (nameCity) dispatch(setCity(nameCity));
-    dispatch(initPlanner());
+    // dispatch(resetPlanner());
     handleSearch();
+    return () => {
+    dispatch(resetPlanner());
+  };
   }, [nameCity]);
 
   
@@ -394,7 +398,7 @@ function priceText(level) {
           )
          })}
 
-         {!loading && (<div className='pagination'>
+         {(!loading && nbPages>1) && (<div className='pagination'>
             <button className='Pre' disabled={index===0} onClick={()=>setIndex(p =>p-9)}>Previous</button>
             {[...Array(nbPages)].map((_,i)=><button className={(index/9)==i&&"activePage"} key={i} onClick={()=>setIndex(9*Number(i))}>{i+1}</button>)}
             <button className='Next' disabled={index===9*(nbPages-1)} onClick={()=>setIndex(p =>p+9)}>Next</button>

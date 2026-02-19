@@ -1,0 +1,103 @@
+/* ===== PAGE CONTAINER ===== */
+.container_MyTrips {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0px 25px;
+  width: 100%;
+  height: 100vh;
+  padding-top: 12vh;
+}
+
+/* ===== HEADER ===== */
+.head_MyTrips {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.head_MyTrips h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #132437;
+  letter-spacing: 0.4px;
+}
+
+/* ===== CARDS GRID ===== */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+
+}
+
+
+
+/* ===== EMPTY STATE ===== */
+.empty_trips {
+  width: 100%;
+  min-height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty_box {
+  width: min(560px, 100%);
+  text-align: center;
+  padding: 28px 22px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px dashed rgba(0, 0, 0, 0.16);
+  box-shadow: 0 12px 32px rgba(16, 24, 40, 0.06);
+}
+
+.empty_box h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #132437;
+}
+
+.empty_box p {
+  margin: 0 0 18px;
+  color: #6b7b8c;
+  font-weight: 600;
+}
+
+.empty_btn {
+  border: 0;
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius:10px;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--secondary-blue);
+  box-shadow: inset 0 0 0 1px rgba(122, 168, 255, 0.22);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.empty_btn:hover {
+  transform: translateY(-1px);
+  background: var(--secondary-blue-hover);
+}
+
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  
+
+  .head_MyTrips h2 {
+    font-size: 22px;
+  }
+  .cards > .tc-card {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+
