@@ -1,6 +1,6 @@
 .Header{
 width: 100%;
-    height: 11vh;
+    height: 10vh;
     background-color: var(--white);
     display: flex;
     align-items: center;
@@ -21,7 +21,28 @@ width: 100%;
     margin: 0;
     font-weight: 600;
 }
+.a{
+    position: relative;
+}
+.a::after {
+    content: '';
+    position: absolute;
+    width: 0; 
+    height: 2px;
+    bottom: 0;
+        left: 50%; 
 
+    background-color: var(--secondary-blue); 
+    transition: all 0.5s ease-in-out;
+    transform: translateX(-50%); 
+}
+nav a:hover {
+    color: var(--secondary-blue); /* تـغـيير لـون الـ نص */
+}
+
+nav a:hover::after {
+    width: 100%; /* 🚀 الـ شرطة كـاتـسـرّح لـلـ جناب كـاملين */
+}
 
 @media (min-width: 769px) {
     nav {
@@ -116,5 +137,67 @@ width: 100%;
         display: flex;
         align-items: center;
         gap: 32px; 
+    }
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-gray);
+    transition: 0.3s;
+}
+
+.user-info:hover {
+    color: var(--secondary-blue);
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    background-color:var(--secondary-blue);
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #f1f5f9;
+}
+
+.user-name {
+    font-weight: 500;
+    font-size: 12px;
+}
+
+/* 🚪 بـوطونة الـ خروج */
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: 1px solid #f1f5f9;
+    padding: 6px 15px;
+    border-radius: 999px;
+    cursor: pointer;
+    color: #64748b;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #fff1f1;
+    color: #ff4d4d;
+    border-color: #ff4d4d;
+}
+
+/* 📱 Responsive لـلـ مـستخدم الـ مـسجل فـ الـ تـليفون */
+@media (max-width: 768px) {
+    .user-profile {
+        flex-direction: column;
+        width: 100%;
     }
 }
