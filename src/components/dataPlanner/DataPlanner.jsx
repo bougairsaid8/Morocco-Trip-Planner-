@@ -40,7 +40,7 @@ function DataPlanner({setSelectedItem}) {
 
 
   // api keys 
-  const RAPID_KEY = 'b183c922b4msh310f3073e7c626fp1b0201jsnac2d64e3af51';
+  const RAPID_KEY = '59ae3b8193msh29219a24bb084cfp1332e0jsnf2e9b5fa35b6';
   const API_HOST = "apidojo-booking-v1.p.rapidapi.com";
 
   // api he is need dates in format YYYY-MM-DD,

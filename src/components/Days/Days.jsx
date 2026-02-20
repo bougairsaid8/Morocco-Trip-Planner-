@@ -16,7 +16,7 @@ function Days({setNameTrip}) {
       <div className='header'>
         <div>
           <h3>Your ltienrary</h3>
-          <p>Oct 12-Oct 16</p>
+          <p>{new Date().toLocaleDateString()}</p>
         </div>
         <button onClick={()=>dispatch(addDay())}>
           <FaPlus />New Day

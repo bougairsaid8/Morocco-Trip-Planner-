@@ -6,7 +6,6 @@ import { selectIsAuthenticated } from './reduxStructure/selectors';
 
 // --- IMPORTING PAGES ---
 import Home from './pages/Home/Home.jsx';
-import Explorer from './pages/Explorer/Explorer.jsx';
 import Planner from './pages/Planner/Planner.jsx';
 import MyTrips from './pages/MyTrips/MyTrips.jsx';
 import TripDetails from './pages/TripDetails/TripDetails.jsx';
@@ -54,7 +53,6 @@ function App() {
             Accessible by everyone (Logged in or not) */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/explorer" element={<Explorer />} />
 
         {/* --- GUEST ONLY ROUTES --- 
             Accessible only if NOT logged in. Redirects to '/'. */}

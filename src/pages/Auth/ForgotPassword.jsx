@@ -19,6 +19,8 @@ const ForgotPassword = () => {
   const [showPass, setShowPass] = useState(false);
   const [loading, setLoading] = useState(false); 
   const [errors, setErrors] = useState({});
+  console.log(errors);
+  
   
   const [formData, setFormData] = useState({
     email: '',
@@ -78,10 +80,10 @@ const ForgotPassword = () => {
     try {
       // send code to server EmailJs
       await  emailjs.send(
-      'service_4knl1s2', 
-      'template_t1vrvxy', 
+      'service_wdruy5d', 
+      'template_2l4lf9i', 
       templateParams, 
-      'vIcvKHCGQmkgKor6m'
+      '6ctAVcEFQPfRno_pQ'
     )
       setStep('otp'); // move to next step
     } catch {
