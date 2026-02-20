@@ -23,7 +23,9 @@
 .photo-upload-row h3{font-weight: 500;font-size: 16px;}
 .photo-upload-row p{opacity: 0.7;font-weight: 400;font-size: 14px; color: var(--text-gray);width:400px}
 
-.avatar-img { width: 80px; height: 80px; border-radius: 50%; background-color: var(--secondary-blue);}
+.avatar-img { width: 80px; height: 80px; border-radius: 50%; background-position: center;
+    background-size: cover;
+;}
 
 .form-field { margin:0 auto;display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
 

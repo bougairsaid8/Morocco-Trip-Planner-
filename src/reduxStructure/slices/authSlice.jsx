@@ -79,10 +79,57 @@ export const authSlice = createSlice({
               state.error = "This email address is not registered";
               state.message = null;
           }
-      }
+      },
+      updateProfile: (state, action) => {
+            const { username, email } = action.payload;
+
+            const current = state.user;
+            if (!current) {
+                state.error = "Not authenticated";
+                state.message = null;
+                return;
+            }
+
+            let allUsers = JSON.parse(localStorage.getItem("allUsers")) || [];
+
+            // إذا بغيت تبدّل الإيميل: تأكد ماكاينش شي واحد آخر مستعملو
+            if (email && email !== current.email) {
+                const exists = allUsers.find((u) => u.email === email);
+                if (exists) {
+                state.error = "Email already used";
+                state.message = null;
+                return;
+                }
+            }
+
+            // لقا user فـ allUsers باستعمال الإيميل القديم
+            const idx = allUsers.findIndex((u) => u.email === current.email);
+            if (idx === -1) {
+                state.error = "User not found";
+                state.message = null;
+                return;
+            }
+
+            // حدّث غير اللي عطيت فـ payload
+            const updatedUser = {
+                ...allUsers[idx],
+                username: username ?? allUsers[idx].username,
+                email: email ?? allUsers[idx].email,
+            };
+
+            allUsers[idx] = updatedUser;
+
+            localStorage.setItem("allUsers", JSON.stringify(allUsers));
+            localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+
+            state.user = updatedUser;
+            state.isAuthenticated = true;
+            state.error = null;
+            state.message = "Profile updated successfully!";
+            },
     }
 });
 
-export const {signup,login,clearAuthError,logout,resetPassword} = authSlice.actions;
+export const {signup,login,clearAuthError,logout,resetPassword,updateProfile} = authSlice.actions;
 
 export default authSlice.reducer

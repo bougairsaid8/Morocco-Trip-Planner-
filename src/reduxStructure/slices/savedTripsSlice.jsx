@@ -19,7 +19,7 @@ const savedTripsSlice = createSlice({
     },
 
     saveTrip: {
-      prepare({ name, city, total, plannerSnapshot }) {
+      prepare({ name, city, total, plannerSnapshot ,image}) {
         const user = getCurrentUser();
         return {
           payload: {
@@ -28,6 +28,7 @@ const savedTripsSlice = createSlice({
             name,
             city,
             total,
+            image,
             plannerSnapshot,
             createdAt: Date.now(),
           },

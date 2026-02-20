@@ -1,14 +1,18 @@
 import React from 'react'
 import "./Home.css";
 import MapComponent from './MapComponent';
+import { useDispatch } from 'react-redux';
 import { IoWallet,IoSearchOutline, IoListOutline, IoMapOutline } from "react-icons/io5";
 import { BiGlobe } from "react-icons/bi";
 import { HiSparkles } from "react-icons/hi2";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LuSearch, LuArrowRight } from "react-icons/lu";
+import { resetPlanner } from '../../reduxStructure/slices/plannerSlice';
+
 
 function Home() {
+  const dispatch=useDispatch()
   const workflow = [
     { icon: <IoSearchOutline />, title: "1. Choose a city", desc: "Select your starting point from our curated list of destinations." },
     { icon: <IoListOutline />, title: "2. Build Itinerary", desc: "Drag and drop activities to craft your perfect day-by-day plan." },
@@ -25,6 +29,7 @@ function Home() {
 
   const handleStart = () => {
     if (cityName.trim() !== "") {
+      dispatch(resetPlanner())
       navigate(`/planner/${cityName}`);
     }}
 

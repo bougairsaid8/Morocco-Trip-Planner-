@@ -1,8 +1,11 @@
 import React from 'react';
 import "./ProfileAside.css";
-import { LuUser, LuShieldCheck, LuMap, LuLogOut } from "react-icons/lu";
+import { LuUser, LuShieldCheck, LuLogOut } from "react-icons/lu";
+import {logout} from '../../reduxStructure/slices/authSlice'
+import { useDispatch } from 'react-redux';
 
 function ProfileAside({selected,setSelected}) {
+  const dispatch=useDispatch()
   return (
     <div className='aswrapper'>
       <div className='up'>
@@ -26,20 +29,10 @@ function ProfileAside({selected,setSelected}) {
           {selected === "Security" && <span className="active-dot"></span>}
         </button>
       </div>
-
-      <div className='MyTrips'>
-       <button className={`nav-item ${selected === "MyTrips" ? "active" : ""}`} onClick={() => setSelected("MyTrips")}>
-          <div className="item-content">
-            <LuMap className="nav-icon" />
-              <span>My Trips</span>
-          </div>
-          {selected === "MyTrips" && <span className="active-dot"></span>}
-        </button>
-      </div>
       </div>
 
     <div className='logout'>
-      <button>
+      <button onClick={()=>dispatch(logout())}>
         <LuLogOut/>
         <span>Log out</span>
       </button>

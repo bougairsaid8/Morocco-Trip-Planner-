@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import { useSelector } from 'react-redux'; 
+import { useSelector ,useDispatch} from 'react-redux'; 
 import "./Navbar.css";
 import { LuMenu, LuX, LuLogOut } from "react-icons/lu";
 import { selectIsAuthenticated } from '../../reduxStructure/selectors';
+import img from '../../assets/profile/oussama.jpg'
+
+import {logout} from '../../reduxStructure/slices/authSlice'
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const isAuthenticated = useSelector(selectIsAuthenticated);
-
+  const dispatch = useDispatch()
   const handleLogout = () => {
-    console.log("User Logged Out");
+      dispatch(logout())
   };
 
   return (
@@ -24,7 +27,6 @@ function Navbar() {
       <div className={`nav-wrapper ${isOpen ? 'open' : ''}`}>
         <nav>
           <Link className='a' to="/">Home</Link>
-          <Link className='a' to="/explorer">Explorer</Link>
           <Link className='a' to="/about">About</Link>
           
           {/* 🎯 إيلا كان مـسجل، نـزيدو هاد الـ روابط */}
@@ -40,7 +42,7 @@ function Navbar() {
             /* 👤 حالة الـ مستخدم الـ مـسجل (User Profile) */
             <div className="user-profile">
               <Link  to="/profile" className="user-info">
-                <div alt="Avatar" className="avatar" />
+                <div alt="Avatar" className="avatar" style={{backgroundImage:`url(${img})`}} />
                 <span className="user-name">Alex Morgan</span>
               </Link>
               <button className='logout-btn' onClick={handleLogout}>

@@ -1,7 +1,25 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import "./MainContent.css"
+import { useSelector,useDispatch } from 'react-redux';
+import {updateProfile} from '../../reduxStructure/slices/authSlice'
+
+import img from '../../assets/profile/oussama.jpg'
 
 function PersonalInfo() {
+  const dispatch = useDispatch();
+  const user = useSelector((s) => s.auth.user);
+
+  const [username, setUsername] = useState(user?.username || "");
+  const [email, setEmail] = useState(user?.email || "");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(updateProfile({
+      username,
+      email
+    }));
+  };
   return (
 <div className='personal-info-area'>
       {/* العنوان */}
@@ -12,7 +30,7 @@ function PersonalInfo() {
 
       {/* سيكشن التصويرة */}
       <div className="photo-upload-row">
-        <div className="avatar-img" ></div>
+        <div className="avatar-img" style={{backgroundImage:`url(${img})`}} ></div>
         <div className="photo-instructions">
           <h3>Profile Photo</h3>
           <p>This will be displayed on your profile and shared with trip companions.</p>
@@ -23,12 +41,12 @@ function PersonalInfo() {
       <form className="profile-form">
         <div className="form-field">
           <label>Full Name</label>
-          <input type="text" defaultValue="Alex Morgan" />
+          <input type="text" value={username} onChange={(e)=>setUsername(e.target.value)}/>
         </div>
 
         <div className="form-field">
           <label>Email Address</label>
-          <input type="email" defaultValue="alex.morgan@example.com" />
+          <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
           <span className="field-hint">We will send travel updates to this address.</span>
         </div>
 
@@ -38,8 +56,7 @@ function PersonalInfo() {
         </div>
 
         <div className="form-buttons">
-          <button type="submit" className="save-btn">Save Changes</button>
-          <button type="button" className="discard-btn">Discard</button>
+          <button type="submit" className="save-btn" onSubmit={handleSubmit}>Save Changes</button>
         </div>
       </form>
     </div>

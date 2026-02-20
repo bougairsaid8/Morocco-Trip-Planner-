@@ -14,6 +14,12 @@ const plannerSlice = createSlice({
         state.selectedDayId = d.id;
       }
     },
+    resetPlanner(state) {
+      state.days = [];
+      const d = createDay();
+      state.days.push(d);
+      state.selectedDayId = d.id;
+    },
     addDay(state) {
       const d = createDay();
       state.days.push(d);
@@ -40,11 +46,19 @@ const plannerSlice = createSlice({
       const day = state.days.find(d => d.id === dayId);
       if (!day) return;
       day.items = day.items.filter(x => x.id !== itemId);
-    }
+    },
+    loadPlanner(state, action) {
+      const newPlanner = action.payload; // {selectedDayId, days}
+      if (!newPlanner || !Array.isArray(newPlanner.days)) return;
+
+      state.days = newPlanner.days;
+      state.selectedDayId =
+        newPlanner.selectedDayId || (newPlanner.days[0] ? newPlanner.days[0].id : null);
+    },
   },
 });
 
-export const { initPlanner, addDay, deleteDay, selectDay, addItemToSelectedDay, removeItem } =
+export const { initPlanner, addDay, deleteDay, selectDay, addItemToSelectedDay, removeItem,loadPlanner,resetPlanner } =
   plannerSlice.actions;
 
 export default plannerSlice.reducer;

@@ -162,7 +162,10 @@ nav a:hover::after {
 .avatar {
     width: 35px;
     height: 35px;
-    background-color:var(--secondary-blue);
+    /* background-color:var(--secondary-blue); */
+    background-position: center;
+    background-size: cover;
+
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #f1f5f9;
