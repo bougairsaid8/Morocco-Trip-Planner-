@@ -1,9 +1,10 @@
 .profileWrapper {
     display: flex;
-    margin-top: 10vh;
+    padding-top: 10vh;
     width: 100%;
-    height: 90vh; 
-    overflow: hidden;
+    /* 90vh here kept to size the layout, scrolling will happen in .mainContent */
+    height: 100vh; 
+    overflow: hidden; /* keep overflow here so inner area scrolls */
 }
 
 .ProfileAside {
@@ -20,10 +21,7 @@
     background-color: white;
   
 }
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden; }
+
+/* removed global html/body rules so they don't disable scrolling on other pages */
 
 

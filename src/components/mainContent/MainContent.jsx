@@ -1,8 +1,7 @@
-import React,{useState} from 'react'
+import React from 'react'
 import "./MainContent.css";
 import PersonalInfo from "./PersonalInfo";
 import Security from "./Security";
-import MyTrips from "./MyTrips"
 
 function MainContent({selected}) {
   return (
@@ -11,7 +10,6 @@ function MainContent({selected}) {
         
         {selected === "Security" && <Security />}
         
-        {selected === "MyTrips" && <MyTrips />}
       
     </div>
   )

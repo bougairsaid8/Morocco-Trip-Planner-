@@ -3,9 +3,10 @@ import "./About.css";
 import image_said from "../../assets/profile/saidbougair.png";
 import image_oussama from "../../assets/profile/oussama.jpg";
 import { FaGithubSquare ,FaLinkedin ,FaInstagramSquare ,FaPaperPlane } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function About() {
-
+const navigate=useNavigate()
 useEffect(() => {
   const numbers = document.querySelectorAll(".Number");
 
@@ -38,7 +39,7 @@ useEffect(() => {
           </p>
 
           <div className="buttons">
-            <button className="btnAbout start">Start Planning</button>
+            <button className="btnAbout start" onClick={()=>navigate('/')}>Start Planning</button>
             <button className="btnAbout">View Gallery</button>
           </div>
         </div>
@@ -88,7 +89,7 @@ useEffect(() => {
             <p className="card-role">Full Stack Developer</p>
             <p className="card-description">Builds modern web applications with a focus on performance, design, and user experience.</p>
             <div className="card-social">
-             <a href="#" target="_blank" rel="noopener noreferrer"> <FaGithubSquare /></a>
+             <a href='https://github.com/bougairsaid8' target="_blank" rel="noopener noreferrer"> <FaGithubSquare /></a>
               <a href="#" target="_blank" rel="noopener noreferrer"><FaInstagramSquare /></a>
                <a href="#" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
             </div>
@@ -100,7 +101,7 @@ useEffect(() => {
             <p className="card-role">Full Stack Developer</p>
             <p className="card-description">Builds modern web applications with a focus on performance, design, and user experience.</p>
             <div className="card-social">
-                <a href="#" target="_blank" rel="noopener noreferrer"> <FaGithubSquare /></a>
+                <a href='https://github.com/oussama-janal' target="_blank" rel="noopener noreferrer"> <FaGithubSquare /></a>
               <a href="#" target="_blank" rel="noopener noreferrer"><FaInstagramSquare /></a>
                <a href="#" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
             </div>
@@ -114,7 +115,7 @@ useEffect(() => {
         <p>Plan your journey and experience Morocco like never before.</p>
 
         <div className="about_buttons">
-          <button className="btnAbout main"> <FaPaperPlane className="icon" /> Start Planning</button>
+          <button className="btnAbout main" onClick={()=>navigate('/')}> <FaPaperPlane className="icon" /> Start Planning</button>
         </div>
       </section>
 

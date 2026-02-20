@@ -3,7 +3,7 @@
 /* base */
 .about {
   background: #eef2f6;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   font-family: "Poppins", sans-serif;
   color: #0f1b2d;
   box-sizing: border-box;
