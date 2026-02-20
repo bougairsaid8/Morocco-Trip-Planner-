@@ -45,7 +45,7 @@ const GuestRoute = () => {
 
 function App() {
   return (
-    <Router>
+    <Router basename='/morocco-trip-planner'>
       {/* Global Navigation Bar - Visible on all pages */}
       <Navbar />
 
