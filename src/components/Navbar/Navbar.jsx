@@ -12,6 +12,9 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const isAuthenticated = useSelector(selectIsAuthenticated);
   const dispatch = useDispatch()
+  const user = useSelector(state => state.auth.user);
+
+  const username = user?.username || "";
   const handleLogout = () => {
       dispatch(logout())
   };
@@ -43,7 +46,7 @@ function Navbar() {
             <div className="user-profile">
               <Link  to="/profile" className="user-info">
                 <div alt="Avatar" className="avatar" style={{backgroundImage:`url(${img})`}} />
-                <span className="user-name">Alex Morgan</span>
+                <span className="user-name">{username}</span>
               </Link>
               <button className='logout-btn' onClick={handleLogout}>
                 <LuLogOut /> <span>Logout</span>

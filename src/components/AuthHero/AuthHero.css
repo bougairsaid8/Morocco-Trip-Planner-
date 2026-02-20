@@ -7,7 +7,9 @@
   display: flex;
   align-items: flex-end; 
   padding: 60px;
-  background-color: #000; /
+
+  
+  background-color: #000;
 }
 
 .hero-img-layer {
