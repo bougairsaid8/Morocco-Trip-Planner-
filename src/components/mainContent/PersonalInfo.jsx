@@ -9,6 +9,8 @@ function PersonalInfo() {
   const dispatch = useDispatch();
   const user = useSelector((s) => s.auth.user);
 
+  const message = useSelector((s) => s.auth.message);
+
   const [username, setUsername] = useState(user?.username || "");
   const [email, setEmail] = useState(user?.email || "");
 
@@ -19,6 +21,8 @@ function PersonalInfo() {
       username,
       email
     }));
+    console.log(message)
+
   };
   return (
 <div className='personal-info-area'>

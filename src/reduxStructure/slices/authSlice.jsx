@@ -80,7 +80,7 @@ export const authSlice = createSlice({
               state.message = null;
           }
       },
-      updateProfile: (state, action) => {
+        updateProfile: (state, action) => {
             const { username, email } = action.payload;
 
             const current = state.user;
@@ -102,7 +102,6 @@ export const authSlice = createSlice({
                 }
             }
 
-            // لقا user فـ allUsers باستعمال الإيميل القديم
             const idx = allUsers.findIndex((u) => u.email === current.email);
             if (idx === -1) {
                 state.error = "User not found";
@@ -126,10 +125,48 @@ export const authSlice = createSlice({
             state.isAuthenticated = true;
             state.error = null;
             state.message = "Profile updated successfully!";
-            },
+       },
+       changePassword: (state, action) => {
+        const { currentPassword, newPassword } = action.payload;
+
+        const currentUser = state.user;
+        
+
+        // تحقق من الباسورد الحالي
+        if (currentUser.password !== currentPassword) {
+            state.error = "Current password is incorrect";
+            state.message = null;
+            return;
+        }
+
+        
+
+        let allUsers = JSON.parse(localStorage.getItem("allUsers")) || [];
+
+        const idx = allUsers.findIndex((u) => u.email === currentUser.email);
+        if (idx === -1) {
+            state.error = "User not found";
+            state.message = null;
+            return;
+        }
+
+        // تحديث فـ allUsers
+        allUsers[idx] = { ...allUsers[idx], password: newPassword };
+        localStorage.setItem("allUsers", JSON.stringify(allUsers));
+
+        // تحديث currentUser
+        const updatedUser = { ...currentUser, password: newPassword };
+        localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+
+        // تحديث redux
+        state.user = updatedUser;
+        state.isAuthenticated = true;
+        state.error = null;
+        state.message = "Password updated successfully!";
+        },
     }
 });
 
-export const {signup,login,clearAuthError,logout,resetPassword,updateProfile} = authSlice.actions;
+export const {signup,login,clearAuthError,logout,resetPassword,updateProfile,changePassword} = authSlice.actions;
 
 export default authSlice.reducer
