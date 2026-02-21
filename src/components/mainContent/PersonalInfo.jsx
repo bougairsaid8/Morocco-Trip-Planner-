@@ -42,7 +42,7 @@ function PersonalInfo() {
       </div>
 
       {/* الـ Form */}
-      <form className="profile-form">
+      <form className="profile-form" onSubmit={(e)=>handleSubmit(e)}>
         <div className="form-field">
           <label>Full Name</label>
           <input type="text" value={username} onChange={(e)=>setUsername(e.target.value)}/>
@@ -60,7 +60,7 @@ function PersonalInfo() {
         </div>
 
         <div className="form-buttons">
-          <button type="submit" className="save-btn" onSubmit={handleSubmit}>Save Changes</button>
+          <button type="submit" className="save-btn" >Save Changes</button>
         </div>
       </form>
     </div>
