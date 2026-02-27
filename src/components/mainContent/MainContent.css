@@ -179,3 +179,7 @@
     background: #f8fafc; display: flex; align-items: center; justify-content: center;
     margin-bottom: 10px; font-size: 20px;
 }
+
+.security-area{
+    position: relative;
+}

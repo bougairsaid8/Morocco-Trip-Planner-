@@ -23,7 +23,7 @@ export const authSlice = createSlice({
                   username:action.payload.username,
                   email:action.payload.email,
                   password:action.payload.password,
-                  avatare:null,
+                  bio:null,
                   trips:null
                 }
                 allUsers.push(user);
@@ -51,6 +51,7 @@ export const authSlice = createSlice({
         },
         clearAuthError:(state)=>{
             state.error = null;
+            state.message = null;
         },
         logout:(state)=>{
             localStorage.removeItem('currentUser'); 
@@ -81,7 +82,7 @@ export const authSlice = createSlice({
           }
       },
         updateProfile: (state, action) => {
-            const { username, email } = action.payload;
+            const { username, email ,bio } = action.payload;
 
             const current = state.user;
             if (!current) {
@@ -114,6 +115,7 @@ export const authSlice = createSlice({
                 ...allUsers[idx],
                 username: username ?? allUsers[idx].username,
                 email: email ?? allUsers[idx].email,
+                bio: bio ?? allUsers[idx].bio,
             };
 
             allUsers[idx] = updatedUser;

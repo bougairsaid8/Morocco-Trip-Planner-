@@ -58,13 +58,13 @@
   justify-content: center;
   align-items: flex-start; 
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 25px;
 }
 
 /* CARD */
 .dataCards .dataCard{
   background-color: var(--white);
-  width: 300px;
+  width: 270px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -87,7 +87,7 @@
 /* IMAGE */
 .dataCards .dataCard .image{
   width: calc(100% - 12px);
-  height: 260px; 
+  height: 200px; 
   border-radius: 12px ;
   background-size: cover;
   background-position: center;
