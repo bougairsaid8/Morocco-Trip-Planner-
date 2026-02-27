@@ -1,9 +1,10 @@
 import React ,{useState} from 'react'
 import "./MainContent.css"
 import { useSelector,useDispatch } from 'react-redux';
-import {updateProfile} from '../../reduxStructure/slices/authSlice'
+import {updateProfile,clearAuthError} from '../../reduxStructure/slices/authSlice'
 
 import img from '../../assets/profile/oussama.jpg'
+import Notification from './Notification';
 
 function PersonalInfo() {
   const dispatch = useDispatch();
@@ -13,19 +14,24 @@ function PersonalInfo() {
 
   const [username, setUsername] = useState(user?.username || "");
   const [email, setEmail] = useState(user?.email || "");
+  const [bio, setBio] = useState(user?.bio || "");
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     dispatch(updateProfile({
+      bio,
       username,
       email
     }));
-    console.log(message)
 
   };
   return (
 <div className='personal-info-area'>
+      {
+        message && <Notification message={message} onClose={() => dispatch(clearAuthError())} />
+      }
       {/* العنوان */}
       <header className="info-title">
         <h2>Personal Information</h2>
@@ -37,7 +43,7 @@ function PersonalInfo() {
         <div className="avatar-img" style={{backgroundImage:`url(${img})`}} ></div>
         <div className="photo-instructions">
           <h3>Profile Photo</h3>
-          <p>This will be displayed on your profile and shared with trip companions.</p>
+          <p>{bio}</p>
         </div>
       </div>
 
@@ -56,7 +62,11 @@ function PersonalInfo() {
 
         <div className="form-field">
           <label>Bio</label>
-          <textarea defaultValue="Digital Nomad exploring North Africa."></textarea>
+          <textarea
+            placeholder="Tell us a little about yourself..."
+            value={bio}
+            onChange={(e) => setBio(e.target.value)}
+          />
         </div>
 
         <div className="form-buttons">

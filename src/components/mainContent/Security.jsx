@@ -4,10 +4,15 @@ import { LuLock } from "react-icons/lu";
 import { useDispatch ,useSelector} from "react-redux";
 import { changePassword, clearAuthError } from "../../reduxStructure/slices/authSlice"; 
 
+import Notification from "./Notification.jsx";
+
+
 function Security() {
   const dispatch = useDispatch();
   
   const message = useSelector((s) => s.auth.message);
+  console.log('message',message);
+  
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -22,7 +27,9 @@ function Security() {
     }
 
     dispatch(changePassword({ currentPassword, newPassword }));
-     console.log(message)
+    setCurrentPassword("");
+    setNewPassword("");
+    setConfirmPassword("");
   };
 
   const handleDiscard = () => {
@@ -34,6 +41,10 @@ function Security() {
 
   return (
     <div className="security-area">
+      {/* message */}
+      {message && <Notification message={message} onClose={() => dispatch(clearAuthError())} />}
+
+      {/* العنوان */}
       <header className="info-title">
         <h2>Login & Password</h2>
         <p>Manage your account security settings.</p>
